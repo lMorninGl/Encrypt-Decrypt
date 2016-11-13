@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mQt-9i-wbw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="7FG-EX-O6T">
+            <objects>
+                <viewController id="mQt-9i-wbw" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0rD-rP-f8K"/>
+                        <viewControllerLayoutGuide type="bottom" id="exi-kc-ZOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H9L-yo-clU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjh-no-Yg9">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Mrj-ks-Jft"/>
+                                </constraints>
+                                <state key="normal" title="Generate random string"/>
+                                <connections>
+                                    <action selector="onGenerate" destination="mQt-9i-wbw" eventType="touchUpInside" id="37c-Ke-Ko1"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAU-qJ-iZ3">
+                                <rect key="frame" x="16" y="66" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjV-U7-1Bu">
+                                <rect key="frame" x="16" y="90" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cWn-Mr-Ztz"/>
+                                </constraints>
+                                <state key="normal" title="Encrypt"/>
+                                <connections>
+                                    <action selector="onEncrypt" destination="mQt-9i-wbw" eventType="touchUpInside" id="HjY-bj-x8m"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ba-C7-lOv">
+                                <rect key="frame" x="16" y="128" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4h-FT-oxo">
+                                <rect key="frame" x="16" y="152" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xiY-1N-hgr"/>
+                                </constraints>
+                                <state key="normal" title="Decrypt"/>
+                                <connections>
+                                    <action selector="onDecrypt" destination="mQt-9i-wbw" eventType="touchUpInside" id="XjA-Ba-vV7"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPb-Dz-aBU">
+                                <rect key="frame" x="16" y="190" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sjh-no-Yg9" firstAttribute="top" secondItem="0rD-rP-f8K" secondAttribute="bottom" constant="8" id="2Ck-nn-oxD"/>
+                            <constraint firstItem="7ba-C7-lOv" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="68A-ds-CY2"/>
+                            <constraint firstAttribute="trailing" secondItem="7ba-C7-lOv" secondAttribute="trailing" constant="16" id="AZN-IO-4D4"/>
+                            <constraint firstAttribute="trailing" secondItem="jjV-U7-1Bu" secondAttribute="trailing" constant="16" id="G7A-dc-J15"/>
+                            <constraint firstItem="jjV-U7-1Bu" firstAttribute="top" secondItem="mAU-qJ-iZ3" secondAttribute="bottom" constant="8" id="KYf-n5-nCj"/>
+                            <constraint firstItem="pPb-Dz-aBU" firstAttribute="top" secondItem="W4h-FT-oxo" secondAttribute="bottom" constant="8" id="L3e-2E-Wep"/>
+                            <constraint firstAttribute="trailing" secondItem="pPb-Dz-aBU" secondAttribute="trailing" constant="16" id="MtI-fA-c6G"/>
+                            <constraint firstItem="pPb-Dz-aBU" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="R9o-zb-kI9"/>
+                            <constraint firstItem="mAU-qJ-iZ3" firstAttribute="top" secondItem="sjh-no-Yg9" secondAttribute="bottom" constant="8" id="TR5-v4-gF9"/>
+                            <constraint firstItem="W4h-FT-oxo" firstAttribute="top" secondItem="7ba-C7-lOv" secondAttribute="bottom" constant="8" id="Ukv-6f-nml"/>
+                            <constraint firstAttribute="trailing" secondItem="mAU-qJ-iZ3" secondAttribute="trailing" constant="16" id="aFj-Os-G2S"/>
+                            <constraint firstItem="mAU-qJ-iZ3" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="bYh-Pf-cRH"/>
+                            <constraint firstAttribute="trailing" secondItem="W4h-FT-oxo" secondAttribute="trailing" constant="16" id="nzC-Vt-uXT"/>
+                            <constraint firstItem="W4h-FT-oxo" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="oWN-He-Kwk"/>
+                            <constraint firstAttribute="trailing" secondItem="sjh-no-Yg9" secondAttribute="trailing" constant="16" id="rJa-p7-6hc"/>
+                            <constraint firstItem="sjh-no-Yg9" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="rJu-2t-O96"/>
+                            <constraint firstItem="jjV-U7-1Bu" firstAttribute="leading" secondItem="H9L-yo-clU" secondAttribute="leading" constant="16" id="yS4-Qe-AX0"/>
+                            <constraint firstItem="7ba-C7-lOv" firstAttribute="top" secondItem="jjV-U7-1Bu" secondAttribute="bottom" constant="8" id="zsF-RD-6xs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="decryptButton" destination="W4h-FT-oxo" id="MgY-Wi-ovs"/>
+                        <outlet property="decryptedStringLabel" destination="pPb-Dz-aBU" id="MBW-Qi-i4d"/>
+                        <outlet property="encryptButton" destination="jjV-U7-1Bu" id="NNN-hq-fgD"/>
+                        <outlet property="encryptedStringLabel" destination="7ba-C7-lOv" id="Dob-lY-Xgb"/>
+                        <outlet property="generateButton" destination="sjh-no-Yg9" id="IBn-wN-zNk"/>
+                        <outlet property="generatedStringLabel" destination="mAU-qJ-iZ3" id="OCk-bF-QVG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRE-8I-QDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66.400000000000006" y="121.88905547226388"/>
+        </scene>
+    </scenes>
+</document>
