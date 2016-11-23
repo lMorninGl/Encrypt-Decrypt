@@ -14,12 +14,16 @@ SecKeyRef privateKey;
 
 @implementation NSData (Encryption)
 
-- (NSData *)AES256EncryptWithKey:(NSString *)key
+- (NSData *)AES256EncryptWithKey:(NSString *)key iv:(NSString *)iv
 {
     char keyPtr[kCCKeySizeAES256+1];
+    char ivPointer[kCCBlockSizeAES128+2];
+    
     bzero(keyPtr, sizeof(keyPtr));
+    bzero(ivPointer, sizeof(ivPointer));
     
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    [iv getCString:ivPointer maxLength:sizeof(ivPointer) encoding:NSUTF8StringEncoding];
     
     NSUInteger dataLength = [self length];
     
@@ -29,7 +33,7 @@ SecKeyRef privateKey;
     size_t numBytesEncrypted = 0;
     CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128, kCCOptionPKCS7Padding,
                                           keyPtr, kCCKeySizeAES256,
-                                          NULL,
+                                          ivPointer,
                                           [self bytes], dataLength,
                                           buffer, bufferSize,
                                           &numBytesEncrypted);
@@ -42,12 +46,16 @@ SecKeyRef privateKey;
     return nil;
 }
 
-- (NSData *)AES256DecryptWithKey:(NSString *)key
+- (NSData *)AES256DecryptWithKey:(NSString *)key iv:(NSString *)iv
 {
     char keyPtr[kCCKeySizeAES256+1];
+    char ivPointer[kCCBlockSizeAES128+2];
+    
     bzero(keyPtr, sizeof(keyPtr));
+    bzero(ivPointer, sizeof(ivPointer));
     
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    [iv getCString:ivPointer maxLength:sizeof(ivPointer) encoding:NSUTF8StringEncoding];
     
     NSUInteger dataLength = [self length];
     
@@ -57,7 +65,7 @@ SecKeyRef privateKey;
     size_t numBytesDecrypted = 0;
     CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, kCCOptionPKCS7Padding,
                                           keyPtr, kCCKeySizeAES256,
-                                          NULL,
+                                          ivPointer,
                                           [self bytes], dataLength,
                                           buffer, bufferSize,
                                           &numBytesDecrypted);
